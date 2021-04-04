@@ -16,7 +16,7 @@ class HelloWorld(toga.App):
         We then create a main window (with a name matching the app), and
         show the main window.
         """
-        main_box = toga.Box(style=Pack(direction=COLUMN))
+        main_box = toga.Box(style=Pack(direction=COLUMN))     
 
         name_label = toga.Label(
             'Your name:',
@@ -43,9 +43,13 @@ class HelloWorld(toga.App):
 
 
     def say_hello(self, widget):
+        if not self.name_input.value:
+            name = 'Stranger'
+        else:
+            name = self.name_input.value
         self.main_window.info_dialog(
             'Hi There!',
-            f"Hello, {self.name_input.value}"
+            f"Hello, {name}"
         )
 
 
